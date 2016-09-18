@@ -111,7 +111,13 @@
       "Properties": {
         "StackId": {
           "Ref": "lisastack"
-        }
+        },
+        "Type": "lisa-nodejs-app",
+        "Shortname": "nodejs-app",
+        "EnableAutoHealing": "true",
+        "AutoAssignElasticIps": "false",
+        "AutoAssignPublicIps": "true",
+        "Name": "MyNodeJSApp"
       },
       "Metadata": {
         "AWS::CloudFormation::Designer": {
