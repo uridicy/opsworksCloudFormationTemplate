@@ -42,7 +42,10 @@
         },
         "z": 1,
         "parent": "1590a2a0-72aa-48a3-946c-316abd242208",
-        "embeds": []
+        "embeds": [],
+        "isassociatedwith": [
+          "d5a306c6-f069-4e13-a1ce-d82984bf3eff"
+        ]
       },
       "868bf0d6-625b-422e-b80b-c6d22dceeabb": {
         "size": {
@@ -56,6 +59,15 @@
         "z": 1,
         "parent": "1590a2a0-72aa-48a3-946c-316abd242208",
         "embeds": []
+      },
+      "5553c9e3-71be-4b54-8818-bb824bd5f26b": {
+        "source": {
+          "id": "7b9647f7-36fb-4646-88f2-0f8c648f7f1b"
+        },
+        "target": {
+          "id": "d5a306c6-f069-4e13-a1ce-d82984bf3eff"
+        },
+        "z": 2
       }
     }
   },
@@ -130,7 +142,13 @@
       "Properties": {
         "StackId": {
           "Ref": "lisastack"
-        }
+        },
+        "LayerIds": [
+          {
+            "Ref": "APILayer"
+          }
+        ],
+        "InstanceType": "m1.small"
       },
       "Metadata": {
         "AWS::CloudFormation::Designer": {
