@@ -137,6 +137,13 @@
       "Properties": {
         "StackId": {
           "Ref": "lisastack"
+        },
+        "Type": "nodejs",
+        "Name": "lisanodejsapp",
+        "AppSource": {
+          "Type": "git",
+          "Url": "git://github.com//awslabs/opsworks-windows-demo-nodejs.git",
+          "Revision": "version1"
         }
       },
       "Metadata": {
