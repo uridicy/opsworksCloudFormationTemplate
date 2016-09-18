@@ -1,0 +1,148 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Metadata": {
+    "AWS::CloudFormation::Designer": {
+      "1590a2a0-72aa-48a3-946c-316abd242208": {
+        "size": {
+          "width": 350,
+          "height": 160
+        },
+        "position": {
+          "x": 110,
+          "y": 180
+        },
+        "z": 0,
+        "embeds": [
+          "868bf0d6-625b-422e-b80b-c6d22dceeabb",
+          "7b9647f7-36fb-4646-88f2-0f8c648f7f1b",
+          "d5a306c6-f069-4e13-a1ce-d82984bf3eff"
+        ]
+      },
+      "d5a306c6-f069-4e13-a1ce-d82984bf3eff": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 140,
+          "y": 220
+        },
+        "z": 1,
+        "parent": "1590a2a0-72aa-48a3-946c-316abd242208",
+        "embeds": []
+      },
+      "7b9647f7-36fb-4646-88f2-0f8c648f7f1b": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 240,
+          "y": 220
+        },
+        "z": 1,
+        "parent": "1590a2a0-72aa-48a3-946c-316abd242208",
+        "embeds": []
+      },
+      "868bf0d6-625b-422e-b80b-c6d22dceeabb": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 330,
+          "y": 220
+        },
+        "z": 1,
+        "parent": "1590a2a0-72aa-48a3-946c-316abd242208",
+        "embeds": []
+      }
+    }
+  },
+  "Resources": {
+    "lisastack": {
+      "Type": "AWS::OpsWorks::Stack",
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "1590a2a0-72aa-48a3-946c-316abd242208"
+        }
+      }
+    },
+    "APILayer": {
+      "Type": "AWS::OpsWorks::Layer",
+      "Properties": {
+        "StackId": {
+          "Ref": "lisastack"
+        }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "d5a306c6-f069-4e13-a1ce-d82984bf3eff"
+        }
+      }
+    },
+    "APIServer": {
+      "Type": "AWS::OpsWorks::Instance",
+      "Properties": {
+        "StackId": {
+          "Ref": "lisastack"
+        }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "7b9647f7-36fb-4646-88f2-0f8c648f7f1b"
+        }
+      }
+    },
+    "APICode": {
+      "Type": "AWS::OpsWorks::App",
+      "Properties": {
+        "StackId": {
+          "Ref": "lisastack"
+        }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "868bf0d6-625b-422e-b80b-c6d22dceeabb"
+        }
+      }
+    }
+  },
+  "Parameters": {
+    "Owner": {
+      "Description": "Who made this stack?",
+      "Type": "String"
+    },
+    "StackName": {
+      "Description": "Name for stack (must be unique)",
+      "Type": "String"
+    },
+	 "ServiceRole": {
+      "Default": "aws-opsworks-service-role",
+      "Description": "The OpsWorks service role",
+      "Type": "String",
+      "MinLength": "1",
+      "MaxLength": "64",
+      "AllowedPattern": "[a-zA-Z][a-zA-Z0-9-]*",
+      "ConstraintDescription": "must begin with a letter and contain only alphanumeric characters."
+    },
+    "InstanceRole": {
+      "Default": "aws-opsworks-ec2-role",
+      "Description": "The OpsWorks instance role",
+      "Type": "String",
+      "MinLength": "1",
+      "MaxLength": "64",
+      "AllowedPattern": "[a-zA-Z][a-zA-Z0-9-]*",
+      "ConstraintDescription": "must begin with a letter and contain only alphanumeric characters."
+    },
+    "AppName": {
+      "Default": "myapp",
+      "Description": "The app name",
+      "Type": "String",
+      "MinLength": "1",
+      "MaxLength": "64",
+      "AllowedPattern": "[a-zA-Z][a-zA-Z0-9]*",
+      "ConstraintDescription": "must begin with a letter and contain only alphanumeric characters."
+    }
+  }
+}
