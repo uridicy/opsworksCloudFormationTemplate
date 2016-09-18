@@ -124,7 +124,7 @@
         "StackId": {
           "Ref": "lisastack"
         },
-        "Type": "lisa-nodejs-app",
+        "Type": "nodejs-app",
         "Shortname": "nodejs-app",
         "EnableAutoHealing": "true",
         "AutoAssignElasticIps": "false",
